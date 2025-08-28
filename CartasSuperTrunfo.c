@@ -5,7 +5,7 @@ int main(){
     //nomes das variáveis simples para fácil entendimento
     char uf1, uf2, cod1[3], cod2[3], cidade1[20], cidade2[20];
     int populacao1, populacao2, ptotur1, ptotur2;
-    float area1, area2, pib1, pib2;
+    float area1, area2, pib1, pib2, denspop1, denspop2, pibpc1, pibpc2;
      
     
     
@@ -28,6 +28,11 @@ int main(){
     scanf ("%f", &pib1);
     printf ("Digite a quantidade de pontos turisticos: ");
     scanf ("%d", &ptotur1);
+
+    //calculo de dados de acordo com unformacoes alimentadas pelos usuarios
+    denspop1 = (float) populacao1/area1;
+    pibpc1 = (pib1 /(float) populacao1)*1000000000;
+    
     
     //leitura das informacoes alimentadas pelo usuario e verificacao das variaveis
     printf ("CARTA 1 CADASTRADA\n");
@@ -38,6 +43,8 @@ int main(){
     printf ("Area: %.2f km2\n", area1);
     printf ("PIB: %.2f bi de Reais\n", pib1);
     printf ("Pontos Turisticos: %d\n", ptotur1);
+    printf ("Densidade Populacional: %.2f hab/km2\n", denspop1);
+    printf ("PIB per capita: %.2f de Reais\n", pibpc1);
 
     //interacao esperada para alimentacao do programa
     printf ("CARTA 2\n");
@@ -56,6 +63,9 @@ int main(){
     printf ("Digite a quantidade de pontos turisticos: ");
     scanf ("%d", &ptotur2);
    
+    denspop2 = (float) populacao2/area2;
+    pibpc2 = (pib2 /(float) populacao2)*1000000000;
+
     //leitura das informacoes alimentadas pelo usuario e verificacao das variaveis
     printf ("CARTA 2 CADASTRADA\n");
     printf ("Estado: %c\n", uf2);
@@ -65,6 +75,8 @@ int main(){
     printf ("Area: %.2f km2\n", area2);
     printf ("PIB: %.2f bi de Reais\n", pib2);
     printf ("Pontos Turisticos: %d\n", ptotur2);
+    printf ("Densidade Populacional: %.2f hab/km2\n", denspop2);
+    printf ("PIB per capita: %.2f de Reais\n", pibpc2);
 
     return 0;
 
