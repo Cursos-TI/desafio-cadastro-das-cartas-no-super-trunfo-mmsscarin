@@ -4,8 +4,10 @@ int main(){
 
     //nomes das variáveis simples para fácil entendimento
     char uf1, uf2, cod1[3], cod2[3], cidade1[20], cidade2[20];
-    int populacao1, populacao2, ptotur1, ptotur2;
-    float area1, area2, pib1, pib2, denspop1, denspop2, pibpc1, pibpc2;
+    int ptotur1, ptotur2, respop, resarea, respib, resptotur, resdenspop, respibpc, ressp;
+    float area1, area2, pib1, pib2, denspop1, denspop2, pibpc1, pibpc2, superpoder1, superpoder2;
+    unsigned long int populacao1, populacao2;
+    // variavies iniciadas em res armazenam o resultado das comparacoes entre as cartas
      
     
     
@@ -32,6 +34,7 @@ int main(){
     //calculo de dados de acordo com unformacoes alimentadas pelos usuarios
     denspop1 = (float) populacao1/area1;
     pibpc1 = (pib1 /(float) populacao1)*1000000000;
+    superpoder1 = (float) populacao1 + area1 + pib1 + (float) ptotur1 + (1/denspop1) + pibpc1;
     
     
     //leitura das informacoes alimentadas pelo usuario e verificacao das variaveis
@@ -45,6 +48,7 @@ int main(){
     printf ("Pontos Turisticos: %d\n", ptotur1);
     printf ("Densidade Populacional: %.2f hab/km2\n", denspop1);
     printf ("PIB per capita: %.2f de Reais\n", pibpc1);
+    printf ("Super Poder: %.2f\n", superpoder1);
 
     //interacao esperada para alimentacao do programa
     printf ("CARTA 2\n");
@@ -65,6 +69,7 @@ int main(){
    
     denspop2 = (float) populacao2/area2;
     pibpc2 = (pib2 /(float) populacao2)*1000000000;
+    superpoder2 = (float) populacao2 + area2 + pib2 + (float) ptotur2 + (1/denspop2) + pibpc2;
 
     //leitura das informacoes alimentadas pelo usuario e verificacao das variaveis
     printf ("CARTA 2 CADASTRADA\n");
@@ -77,6 +82,30 @@ int main(){
     printf ("Pontos Turisticos: %d\n", ptotur2);
     printf ("Densidade Populacional: %.2f hab/km2\n", denspop2);
     printf ("PIB per capita: %.2f de Reais\n", pibpc2);
+    printf ("Super Poder: %.2f\n", superpoder2);
+
+    //secao para calculo do comparativo entre as cartas
+    respop = populacao1 > populacao2;
+    resarea = area1 > area2;
+    respib = pib1 > pib2;
+    resptotur = ptotur1 > ptotur2;
+    resdenspop = (1/denspop1) > (1/denspop2);
+    respibpc = pibpc1 > pibpc2;
+    ressp = superpoder1 > superpoder2;
+
+    //secao para apresentacao dos resultados comparativos
+    printf ("COMPARATIVO ENTRE CARTAS\n");
+    printf("Para vencedor, considere:\n");
+    printf ("1 como Carta 1\n");
+    printf ("0 como Carta 2\n");
+    printf("O vencedor da População é: %d\n", respop);
+    printf("O vencedor da Área é: %d\n", resarea);
+    printf("O vencedor do PIB é: %d\n", respib);
+    printf("O vencedor dos Pontos Turísticos é: %d\n", resptotur);
+    printf("O vencedor da Densidade Populacional é: %d\n", resdenspop);
+    printf("O vencedor do PIB per Capita é: %d\n", respibpc);
+    printf("O vencedor do Super Poder é: %d\n", ressp);
+    
 
     return 0;
 
